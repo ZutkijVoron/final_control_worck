@@ -59,4 +59,17 @@ ctrl + d
 
 -- mv ./friendsOfMan ./assets/
 
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+-- wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+
+-- sudo apt install ./mysql-apt-config_0.8.12-1_all.deb
+
+-- sudo apt update
+
+-- sudo apt install mysql-server
+
+
+
 
