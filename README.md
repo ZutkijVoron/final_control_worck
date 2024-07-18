@@ -70,6 +70,15 @@ ctrl + d
 
 -- sudo apt install mysql-server
 
+4. Установить и удалить deb-пакет с помощью dpkg
+
+-- wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+
+-- sudo dpkg -i https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+
+-- sudo apt-get install -f
+
+
 
 
 
