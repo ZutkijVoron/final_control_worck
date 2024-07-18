@@ -53,5 +53,10 @@ ctrl + d
 
 -- cat packAnimals pets > friendsOfMan
 
+2. Создать директорию, переместить файл туда.
+
+-- mkdir assets
+
+-- mv ./friendsOfMan ./assets/
 
 
