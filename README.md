@@ -79,7 +79,9 @@ https://download.docker.com/linux/ubuntu/dists/jammy/pool/test/amd64/docker-ce_2
 - sudo dpkg -i docker-ce_26.1.3-1~ubuntu.22.04~jammy_amd64.deb
 - sudo apt install -f
 
+5. Выложить историю команд в терминале ubuntu
 
+- # до этого писал все команды
 
 
 
