@@ -90,3 +90,9 @@ https://download.docker.com/linux/ubuntu/dists/jammy/pool/test/amd64/docker-ce_2
 
 - файл приложил в assets
 
+7. В подключенном MySQL репозитории создать базу данных “Друзья
+человека”
+
+-- сделано в скрипте
+
+
