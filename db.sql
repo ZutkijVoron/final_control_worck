@@ -22,7 +22,7 @@ pets_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pets_id) references pets(id)
+foreign key(pets_id) references pets(id) on delete cascade
 );
 drop table if exists cats;
 create table cats(
@@ -31,7 +31,7 @@ pets_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pets_id) references pets(id)
+foreign key(pets_id) references pets(id) on delete cascade
 );
 drop table if exists hamsters;
 create table hamsters(
@@ -40,7 +40,7 @@ pets_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pets_id) references pets(id)
+foreign key(pets_id) references pets(id) on delete cascade
 );
 drop table if exists horses;
 create table horses(
@@ -49,7 +49,7 @@ pack_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pack_id) references packAnimals(id)
+foreign key(pack_id) references packAnimals(id) on delete cascade
 );
 drop table if exists camels;
 create table camels(
@@ -58,7 +58,7 @@ pack_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pack_id) references packAnimals(id)
+foreign key(pack_id) references packAnimals(id) on delete cascade
 );
 drop table if exists donkeys;
 create table donkeys(
@@ -67,22 +67,22 @@ pack_id int,
 name_animal varchar(50) not null,
 commands varchar(255),
 birth_date date not null,
-foreign key(pack_id) references packAnimals(id)
+foreign key(pack_id) references packAnimals(id) on delete cascade
 );
 
 CREATE TABLE animals (
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     pet_id int,
     pack_id int,
-    foreign key (pet_id) references pets(id),
-    foreign key (pack_id) references packAnimals(id)
+    foreign key (pet_id) references pets(id) on delete cascade,
+    foreign key (pack_id) references packAnimals(id) on delete cascade
 );
 
 DROP TABLE IF EXISTS friendsOfMan;
 CREATE TABLE friendsOfMan (
 id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 animal_id int,
-foreign key (animal_id) references animals(id)
+foreign key (animal_id) references animals(id) on delete cascade
 );
 insert into pets (animal) values ('Dog'), ('Cat'), ('Hamster');
 insert into packAnimals (animal) values ('Horse'), ('Camel'), ('Donkey');
@@ -117,3 +117,13 @@ SELECT id, NULL
 FROM pets;
 ;
 INSERT INTO animals (pet_id, pack_id) select null, id from packAnimals;
+
+SET SQL_SAFE_UPDATES = 0;
+
+drop table if exists camels;
+delete from packAnimals
+where animal='Camel';
+
+SET SQL_SAFE_UPDATES = 1;
+
+select * from packAnimals;
