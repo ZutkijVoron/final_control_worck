@@ -126,4 +126,20 @@ where animal='Camel';
 
 SET SQL_SAFE_UPDATES = 1;
 
+drop table if exists comdinedAnimals;
+CREATE TABLE combinedAnimals like horses;
+
+INSERT INTO combinedAnimals (pack_id, name_animal, commands, birth_date) SELECT pack_id, name_animal, commands, birth_date
+FROM horses;
+
+INSERT INTO combinedAnimals (pack_id, name_animal, commands, birth_date)
+SELECT pack_id, name_animal, commands, birth_date
+FROM donkeys;
+
+DROP TABLE IF EXISTS horses;
+DROP TABLE IF EXISTS donkeys;
+
+SELECT * FROM combinedAnimals;
+
+
 select * from packAnimals;
