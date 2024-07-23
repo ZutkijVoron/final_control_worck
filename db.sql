@@ -207,3 +207,31 @@ WHERE
     TIMESTAMPDIFF(YEAR, h.birth_date, CURDATE()) BETWEEN 1 AND 3;
 
 SELECT * FROM young_animals;
+
+DROP TABLE IF EXISTS all_animals;
+CREATE TABLE all_animals (
+     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    type VARCHAR(50) NOT NULL,
+     name_animal VARCHAR(50) NOT NULL,
+     commands VARCHAR(255),
+     birth_date DATE NOT NULL,
+    original_table VARCHAR(50)
+ );
+
+INSERT INTO all_animals (type, name_animal, commands, birth_date, original_table)
+SELECT 'Dog', name_animal, commands, birth_date, 'dogs'
+FROM dogs;
+
+INSERT INTO all_animals (type, name_animal, commands, birth_date, original_table)
+SELECT 'Cat', name_animal, commands, birth_date, 'cats'
+FROM cats;
+
+INSERT INTO all_animals (type, name_animal, commands, birth_date, original_table)
+SELECT 'Hamster', name_animal, commands, birth_date, 'hamsters'
+FROM hamsters;
+
+INSERT INTO all_animals (type, name_animal, commands, birth_date, original_table)
+SELECT 'Horse', name_animal, commands, birth_date, 'horses'
+FROM combinedAnimals;
+
+SELECT * FROM all_animals;
